@@ -1,6 +1,10 @@
 # MedianHeap
 PHP does not have a built in function for calculating the median of an array. Write an implementation of a “MedianHeap” class that takes an array of numbers and can output it’s median. Also write a simple array_median() function that does not utilize heap strategies. Please benchmark the 2 solutions and determine which is faster. Please give a brief explanation on why you believe the faster implementation is faster.
-
+## How to run it
+- Clone the repo
+- If running the Quick Sort test comment line 51
+- If running the Heap Sort test comment line 50
+- Run ```php TestMedianHeap.php```
 ## Results
 I ran the two tests separately, each test consists on building 50 arrays with 50 random numbers between -999 and 999, then sorting each of the 50 arrays and calculating the Median. The tests were ran ten times each and took out the highest and the lowest times, then made an average, and this are the results:
 

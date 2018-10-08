@@ -56,5 +56,11 @@ class TestMedianHeap{
 
 //Instantiate a Test Object
 $_test = new TestMedianHeap();
-$_test->testArray();//If executing the Heap Sort Sorting, comment this line
-$_test->testHeap();//If executing the Quick Sort Sorting, comment this line
+foreach($argv as $arg){
+    if($arg == "--heap"){
+        $_test->testHeap();
+    }
+    if($arg == "--quick"){
+        $_test->testArray();
+    }
+}

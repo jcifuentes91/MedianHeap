@@ -9,43 +9,43 @@ class TestMedianHeap{
     public function __construct()
     {
         $this->medianHeap = new MedianHeap();
-        $arrayCount = mt_rand(40,50);
-        for($i=0;$i<$arrayCount;$i++){
+        for($i=0;$i<50;$i++){
             $newArray = range(-9999, 9999);
             shuffle($newArray );
-            $randonLength = mt_rand(40,50);
-            $newArray = array_slice($newArray ,0,$randonLength);
+            $newArray = array_slice($newArray ,0,50);
             $this->arrays[] = $newArray;
-            //print_r($newArray);
         }
     }
 
-    public function test(){
+    public function testArray(){
         //median array
         $arrayLength = count($this->arrays);
         //start timer
         $medianArrayTimer = microtime(true); 
         for($i=0;$i<$arrayLength;$i++){
             $currentArray = $this->arrays[$i];
-            $median = $this->medianHeap->median_array($currentArray,true);
-            //echo $median."\r\n";
+            $median = $this->medianHeap->median_array($currentArray);
         }
         //end timer
-        echo 'ARRAYS: '.count($this->arrays)."\r\n";
+        echo 'ARRAYS: '.$arrayLength."\r\n";
         $medianArrayTime = (microtime(true) - $medianArrayTimer);
         echo 'MEDIAN ARRAY TIME: '.$medianArrayTime."\r\n";
+    }
+
+    public function testHeap(){
+        $arrayLength = count($this->arrays);
+        echo 'ARRAYS: '.$arrayLength."\r\n";
         //median heap
         $medianHeapTimer = microtime(true);
         for($i=0;$i<$arrayLength;$i++){
             $currentArray = $this->arrays[$i];
-            $median = $this->medianHeap->median_heap($currentArray,true);
-            //echo $median."\r\n";
+            $median = $this->medianHeap->median_heap($currentArray);
         }
         $medianHeapTime = (microtime(true) - $medianHeapTimer);
-        echo 'MEDIAN HEAP TIME: '.$medianHeapTime;
-        return ['heap'=>$medianHeapTime,'array'=> $medianArrayTime];
+        echo 'MEDIAN HEAP TIME: '.$medianHeapTime."\r\n";;
     }
 }
 
 $_test = new TestMedianHeap();
-$_test->test();
+$_test->testArray();
+$_test->testHeap();

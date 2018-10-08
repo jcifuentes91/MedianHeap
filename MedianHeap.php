@@ -2,19 +2,13 @@
 class MedianHeap {
 
 
-    public function median_array($array,$print){
+    public function median_array($array){
         $array = $this->quickSort($array,count($array));
-       // if($print){
-        //    print_r($array);
-        //}
         return $this->calculateMedian($array);
     }
 
-    public function median_heap($array,$print){
+    public function median_heap($array){
         $array =  $this->heapSort($array);
-       // if($print){
-        //    print_r($array);
-        //}
         return $this->calculateMedian($array);
     }
 
